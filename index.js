@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8080
 app.use(bodyParser.json())
 app.use(cors())
 
-const LOGS = []
+let LOGS = []
 
 app.post(`/gps`, (req, res) => {
 	const body = req.body || {}
@@ -33,6 +33,11 @@ app.get('/logs', (req, res) => {
 	</html>
 	`
 	res.send(html)
+})
+
+app.get('/clear-logs', (req, res) => {
+	LOGS = []
+	res.send('OK')
 })
 
 app.listen(PORT, () => console.log(`[Server] Listening on PORT ${PORT}`))
