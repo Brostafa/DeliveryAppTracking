@@ -13,8 +13,8 @@ let LOGS = []
 
 app.post(`/gps`, (req, res) => {
 	const body = req.body || {}
-	const ip =  req.headers['x-forwarded-for'] || req.connection.remoteAddress
-	
+	const ip =  (req.headers['x-forwarded-for'] || req.connection.remoteAddress).replace(/:|[a-z]+/g, '')
+		
 	res.send(`Received GPS Data - ip -> ${ip} & data body ${JSON.stringify(body)}`)
 	console.log(`Received data IP: ${ip} & BODY -> `, body)
 	LOGS.push(`Received data IP: ${ip} & BODY: ${JSON.stringify(body)}`)
