@@ -21,7 +21,6 @@ pm2 i pm2 -g
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt-get install yarn
-mark
 
 # Clone repo and install packages
 git clone https://github.com/Brostafa/DeliveryAppTracking.git
