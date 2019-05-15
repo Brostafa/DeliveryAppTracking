@@ -36,3 +36,10 @@ pm2 logs
 
 # [Server] Listening on PORT 8080
 ```
+
+## APIs
+
+- `GET /logs` you will get GPS logs
+- `GET /clear-logs` if you want to clear server logs from `/logs` endpoint
+  - Note: on server restart, logs will also be cleared for `/logs` endpoint but will persist on the server and can be accessed through `pm2 logs`
+- `POST /gps` endpoint we use to POST new GPS data
